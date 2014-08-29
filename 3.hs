@@ -6,6 +6,6 @@ isPrime n = let sqrtN = floor $ sqrt $ fromIntegral n
 isFactorOf :: Integer -> Integer -> Bool
 x `isFactorOf` y = y `mod` x == 0
 
-answer = let n = 600851475143
-             start = floor (fromIntegral n/3)
-         in head [x | x <- [start,start-2..1], x `isFactorOf` n && isPrime x]
+n = 600851475143
+
+answer = head $ filter isPrime [n `div` x | x <- [2..], x `isFactorOf` n]
